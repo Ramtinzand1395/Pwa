@@ -1,5 +1,5 @@
 const STATICCASHNAME = "site-static-v2";
-const assets = ["/", "/index.html","/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg"];
+const assets = ["/", "/index.html","/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg" ,"/static/js/main.46f5c8f5.js"];
 const self = this;
 
 self.addEventListener("install", (e) => {

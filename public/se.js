@@ -1,4 +1,4 @@
-const STATICCASHNAME = "site-static";
+const STATICCASHNAME = "site-static-v2";
 const assets = ["/", "/index.html","/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg"];
 const self = this;
 
@@ -12,7 +12,16 @@ self.addEventListener("install", (e) => {
 });
 
 self.addEventListener("activate", (e) => {
-  console.log("active");
+  e.waitUntil(
+    caches.keys().then(keys =>{
+      return Promise.all(keys
+        .filter(key => key !==STATICCASHNAME)
+        .map(key => caches.delete(key))
+        )
+
+    })
+  )
+
 });
 
 self.addEventListener("fetch", (e) => {
